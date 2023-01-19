@@ -61,7 +61,7 @@ In this example, the output would be `5`.
 
 ### Verbatim strings
 
-If your string already has proper escaping, you can turn off the escaping by using the argument label `varbatim:`.
+If your string already has proper escaping, you can turn off the escaping by using the argument label `verbatim:`.
 
 ```swift
 let alreadyEscapedString:String = "WIP.\\ \\ I\\'m\\ still\\ \\\"testing\\\"\\ it."
@@ -74,8 +74,10 @@ For the special case of booleans, many different apps interpret the format diffe
 
 ```swift
 let shouldIStay:Bool = false
-let output = Process.zsh("git commit -m \(verbatim:alreadyEscapedString)")
+let output = Process.zsh("echo \(shouldIStay, format:.integer)")
 ```
+
+produces `0`.  See `ZshInterpolation.BoolFormat` for more options.
 
 
 ## Progress
